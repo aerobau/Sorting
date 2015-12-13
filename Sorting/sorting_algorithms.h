@@ -17,6 +17,7 @@ namespace sort {
 
 template<typename T>
 void swap(T& first, T& second) {
+    // User moving semantics for use with smart pointers and types that arent able to be copied
     T temp = std::move(first);
     first = std::move(second);
     second = std::move(temp);
@@ -83,10 +84,14 @@ void merge(T* start_1, T* end_1, T* start_2, T* end_2,
             swap(*iter_1++, *iter_2++);
         }
         
+        // iter_1 has reached the aux list, let iter_1 now take control of aux_list and put aux at
+        // iter_2 for possible repopulation
         if (iter_1 == aux_iter) {
             aux_iter = iter_2;
         }
         
+        // iter_2 has dropped off of the back of the array, set equal to aux_iter and let iter_2
+        // take control of the aux list
         if (iter_2 == end_2) {
             iter_2 = aux_iter;
         }
