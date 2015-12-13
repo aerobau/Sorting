@@ -7,9 +7,15 @@
 //
 
 #include <iostream>
+#include "sorting_algorithms.h"
 
 int main(int argc, const char * argv[]) {
-  // insert code here...
-  std::cout << "Hello, World!\n";
-    return 0;
+  int* array = new int[100];
+  for (int i = 0; i < 100; ++i) {
+    array[i] = 100 - i;
+  }
+  sort::merge_sort(array, array + 100);
+  for (int i = 0; i < 100; ++i) {
+    std::cout << array[i] << " ";
+  }
 }
