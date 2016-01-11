@@ -8,14 +8,9 @@
 
 #include <iostream>
 #include "sorting_algorithms.h"
+#include <vector>
 
-int main(int argc, const char * argv[]) {
-  int* array = new int[100];
-  for (int i = 0; i < 100; ++i) {
-    array[i] = 100 - i;
-  }
-  sort::merge_sort(array, array + 100);
-  for (int i = 0; i < 100; ++i) {
-    std::cout << array[i] << " ";
-  }
+int main() {
+    return 0;
 }
+

@@ -17,10 +17,10 @@ namespace sort {
 
 template<typename T>
 void swap(T& first, T& second) {
-    // User moving semantics for use with smart pointers and types that arent able to be copied
-    T temp = std::move(first);
-    first = std::move(second);
-    second = std::move(temp);
+    // In place swap using bitwise or
+    first = first ^ second;
+    second = first ^ second;
+    first = first ^ second;
 }
 
 template<typename T>
